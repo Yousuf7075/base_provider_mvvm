@@ -1,8 +1,19 @@
+
+import 'package:base_provider_mvvm/notifier/post_notifier.dart';
 import 'package:base_provider_mvvm/screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => PostNotifier(),
+        )
+      ],
+      child: MyApp(),
+    ));
 }
 
 class MyApp extends StatelessWidget {
